@@ -12,7 +12,7 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-10">
         <Link
           href="#"
-          className="font-script text-[2.3rem] text-secondary md:text-[2.645rem]"
+          className="font-script text-[2.3rem] text-secondary md:text-[2.645rem] transition-colors hover:text-primary"
         >
           {brand.name}
         </Link>

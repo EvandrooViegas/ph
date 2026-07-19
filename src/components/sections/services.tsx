@@ -1,13 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import { siteData } from "@/data/site-data";
+import { useInView } from "@/lib/useInView";
 
 export function Services() {
   const { services } = siteData;
+  const { ref: sectionRef, isInView } = useInView();
 
   return (
-    <section id="servicos" className="bg-dark px-6 py-20 md:px-10 md:py-28">
+    <section ref={sectionRef} id="servicos" className="bg-dark px-6 py-20 md:px-10 md:py-28">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
-        <div>
+        <div className={isInView ? 'animate-slide-in-left' : 'animation-hidden'}>
           <p className="font-script text-[2.3rem] text-primary md:text-[2.645rem]">
             {services.eyebrow}
           </p>
@@ -31,7 +35,7 @@ export function Services() {
           </ul>
         </div>
 
-        <div className="relative aspect-[3/4] w-full overflow-hidden md:aspect-auto">
+        <div className={`relative aspect-[3/4] w-full overflow-hidden md:aspect-auto ${isInView ? 'animate-slide-in-right' : 'animation-hidden'}`}>
           <Image
             src={services.image}
             alt="Cliente a receber um corte de cabelo"

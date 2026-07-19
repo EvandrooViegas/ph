@@ -1,10 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import { Home, Mail, Phone, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteData } from "@/data/site-data";
+import { useInView } from "@/lib/useInView";
 
 export function Contact() {
   const { contact } = siteData;
+  const { ref: sectionRef, isInView } = useInView();
 
   const items = [
     { icon: Home, value: contact.address, href: undefined },
@@ -18,9 +22,9 @@ export function Contact() {
   ];
 
   return (
-    <section id="contacto" className="bg-dark px-6 pb-20 md:px-10 md:pb-28">
+    <section ref={sectionRef} id="contacto" className="bg-dark px-6 pb-20 md:px-10 md:pb-28">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 overflow-hidden md:grid-cols-2 md:gap-16">
-        <div className="relative min-h-[360px] w-full overflow-hidden md:min-h-[460px]">
+        <div className={`relative min-h-[360px] w-full overflow-hidden md:min-h-[460px] ${isInView ? 'animate-slide-in-left' : 'animation-hidden'}`}>
           <iframe
             title="Mapa - localização da barbearia"
             src={contact.map.embedSrc}
@@ -30,7 +34,7 @@ export function Contact() {
           />
         </div>
 
-        <div>
+        <div className={isInView ? 'animate-slide-in-right' : 'animation-hidden'}>
           <p className="font-script text-[2.3rem] text-primary md:text-[2.645rem]">
             {contact.eyebrow}
           </p>
@@ -39,7 +43,7 @@ export function Contact() {
           </h2>
 
           <ul className="mt-8 space-y-4">
-            {items.map((item, i) => {
+            {items.map((item) => {
               const Icon = item.icon;
               const content = (
                 <span className="flex items-center gap-3">
@@ -52,7 +56,7 @@ export function Contact() {
                 </span>
               );
               return (
-                <li key={i}>
+                <li key={item.value}>
                   {item.href ? (
                     <Link
                       href={item.href}

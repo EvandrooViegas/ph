@@ -1,13 +1,21 @@
+"use client";
+
 import Image from "next/image";
 import { siteData } from "@/data/site-data";
+import { useInView } from "@/lib/useInView";
 
 export function About() {
   const { about } = siteData;
+  const { ref: imageRef, isInView: imageInView } = useInView();
+  const { ref: contentRef, isInView: contentInView } = useInView();
 
   return (
     <section className="bg-dark px-6 py-20 md:px-10 md:py-28">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
-        <div className="relative aspect-[4/5] w-full overflow-hidden md:max-w-md">
+        <div 
+          ref={imageRef}
+          className={`relative aspect-[4/5] w-full overflow-hidden md:max-w-md ${imageInView ? 'animate-slide-in-left' : 'animation-hidden'}`}
+        >
           <Image
             src={about.image}
             alt="Foto do barbeiro"
@@ -17,7 +25,10 @@ export function About() {
           />
         </div>
 
-        <div>
+        <div 
+          ref={contentRef}
+          className={imageInView ? 'animate-slide-in-right' : 'animation-hidden'}
+        >
           <p className="font-script text-[2.3rem] text-primary md:text-[2.645rem]">
             {about.eyebrow}
           </p>
