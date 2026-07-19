@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  /* Paleta de marca PH Barber */
+  --color-primary: #c19f00;
+  --color-primary-foreground: #030403;
+  --color-dark: #030403;
+  --color-secondary: #d5d5d5;
+  --color-background: #030403;
+
+  --font-display: "Anton", sans-serif;
+  --font-script: "Caveat", cursive;
+  --font-body: "Lato", sans-serif;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-foreground);
+  --color-dark: var(--color-dark);
+  --color-secondary: var(--color-secondary);
+  --color-background: var(--color-background);
+
+  --font-display: var(--font-display);
+  --font-script: var(--font-script);
+  --font-body: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-dark);
+  color: var(--color-secondary);
+  font-family: var(--font-body);
+  font-size: 1.15em;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Traco "pincel" amarelo usado atras de palavras em destaque */
+.brush-highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.brush-highlight::before {
+  content: "";
+  position: absolute;
+  inset: 5% -9% -1% -9%;
+  background-image: url('/images/highlight.png');
+  background-size: cover;
+  background-position: center;
+  transform: rotate(-1deg);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.brush-highlight-garantida {
+  position: relative;
+  display: inline-block;
+}
+
+.brush-highlight-garantida::before {
+  content: "";
+  position: absolute;
+  inset: 5% -9% -1% -9%;
+  background-image: url('/images/highlight.png');
+  background-size: cover;
+  background-position: center;
+  transform: rotate(-1deg);
+  z-index: 0;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.brush-highlight-dark {
+  position: relative;
+  display: inline-block;
+}
+
+.brush-highlight-dark::before {
+  content: "";
+  position: absolute;
+  inset: 5% -9% -1% -9%;
+  background-image: url('/images/highlight.png');
+  background-size: cover;
+  background-position: center;
+  transform: rotate(-1deg);
+  z-index: -1;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-dark);
+}
