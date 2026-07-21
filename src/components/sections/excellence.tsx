@@ -66,7 +66,7 @@ export function Excellence() {
         <div className={`relative mt-12 ${isInView ? 'animate-fade-in' : 'animation-hidden'}`} style={{ animationDelay: isInView ? '0.3s' : '0s' }}>
           <div className="overflow-hidden rounded-lg">
             <div
-              className="flex transition-transform duration-700 ease-in-out"
+              className="flex carousel-slide"
               style={{
                 transform: `translateX(-${index * (100 / visible)}%)`,
               }}

@@ -30,11 +30,11 @@ export const siteData = {
   /** Ligações usadas em vários pontos do site */
   links: {
     // Link usado em todos os botões "Fazer Marcação" / "Agendar"
-    booking: "https://wa.me/351123456789?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20um%20corte",
+    booking: "ph-barbearia.buk.pt",
     // Link do WhatsApp (ícone no cabeçalho)
-    whatsapp: "https://wa.me/351123456789",
+    whatsapp: "https://wa.me/351938185766",
     // Link do Instagram (ícone no cabeçalho e rodapé)
-    instagram: "https://instagram.com/promosoalheiro",
+    instagram: "https://www.instagram.com/ph.barber__/",
   },
 
   /** Barra de navegação no topo */
@@ -101,9 +101,9 @@ export const siteData = {
     eyebrow: "Nos Visite",
     title: "Estámos à Sua Espera",
     address: "Lorem ipsum dolor sit amet, consectetur",
-    email: "geral@promosoalheio.pt",
-    phone: "+123456789",
-    instagramHandle: "@promosoalheiro",
+    email: "ph@gmail.pt",
+    phone: "+351 938 185 766",
+    instagramHandle: "@ph.barber__",
     buttonLabel: "Fazer Marcação",
     // Coordenadas usadas no mapa incorporado (Google Maps)
     map: {

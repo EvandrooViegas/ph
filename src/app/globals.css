@@ -398,3 +398,8 @@ html {
   opacity: 0;
   visibility: hidden;
 }
+
+/* Smooth carousel sliding */
+.carousel-slide {
+  transition: transform 1s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
